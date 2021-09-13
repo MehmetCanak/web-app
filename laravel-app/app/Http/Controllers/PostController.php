@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
+
 
 class PostController extends Controller
 {
@@ -22,7 +24,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store1(Request $request)
     {
 
         //dd($request->all());
@@ -36,7 +38,28 @@ class PostController extends Controller
             'body' => ['required'],
         ]);
     }
-    
+    public function store(StorePostRequest $request)
+    {
+        // The incoming request is valid...
+
+        // Retrieve the validated input data...
+        $validated = $request->validated();
+        // print_r($validated);
+        // print_r("-------");
+
+        // Retrieve a portion of the validated input data...
+        // $validated = $request->safe()->only(['name', 'email']);
+        // print_r($validated);
+
+        // print_r("-------");
+        // $validated = $request->safe()->except(['name', 'email']);
+         print_r($validated);
+
+        // print_r("-------");
+
+
+    }
+        
     public function create()
     {
         return view('post.create');
