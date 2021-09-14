@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Exceptions\ModelNotFoundException;
+
+use Illuminate\Support\Facades\DB;
 
 
 class UserController extends Controller
@@ -16,7 +20,24 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = DB::table('users')->get();
+        $user3 = DB::table('users')->find(1);
+        $email = DB::table('users')->where('name', 'mehmet')->value('email');
+        $usersCount = DB::table('users')->count();
+        print_r($user3); print_r("---email-->: "); print_r($email);print_r("---count-->: "); print_r($usersCount);
+        return view('users.index', ['users' => $users,'user3'=>$user3,'email'=>$email]);
+        //return view('users.index');
+    }
+    public function search(Request $request)
+    {
+        // $user = User::find($request->input('user_id'));
+        // return view('users.search', compact('user'));
+        try {
+            $user = User::findOrFail($request->input('user_id'));
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return view('users.search', compact('user'));
     }
 
     /**

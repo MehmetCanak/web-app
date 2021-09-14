@@ -24,6 +24,9 @@ Route::post('/post', [PostController::class, 'store']);
 Route::get('/', [FormDataController::class,'index'])->name('form.index');
 Route::post('/form', [FormDataController::class,'save'])->name('form.save');
 
+Route::get('/users', [UserController::class,'index'])->name('users.index');
+Route::post('/users/search', [UserController::class,'search'])->name('users.search');
+
 // Route::get('/user/{id}', [UserController::class, 'show']);
 
 // Route::get('/home', function () {
