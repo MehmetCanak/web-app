@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Schema\Builder;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Blade;
@@ -32,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('key', 'value');
         Blade::component('package-alert', Alert::class);
         Blade::component('button', Button::class);
+        Builder::defaultStringLength(191);
         //Blade::component('alert', Alert::class);
         //Blade::componentNamespace('App\View\Components', 'comp');
     }

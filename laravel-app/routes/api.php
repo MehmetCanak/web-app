@@ -6,6 +6,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\FormDataController;
+use App\Http\Controllers\FlightController;
 use App\Models\User;
 
 /*
@@ -26,6 +27,8 @@ Route::post('/form', [FormDataController::class,'save'])->name('form.save');
 
 Route::get('/users', [UserController::class,'index'])->name('users.index');
 Route::post('/users/search', [UserController::class,'search'])->name('users.search');
+
+Route::get('/fly', [FlightController::class,'index']);
 
 // Route::get('/user/{id}', [UserController::class, 'show']);
 
