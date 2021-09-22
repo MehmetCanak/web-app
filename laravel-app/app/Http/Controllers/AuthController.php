@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use \Illuminate\Database\QueryException;
 use App\Http\Requests\Api\LoginUser;
+use App\Libraries\UserLibrary;     
 
 
 //use \App\Http\Requests\StorePostRequest  $request;
@@ -27,27 +28,15 @@ class AuthController extends Controller
         //$input = $request->all('email');
         $email = $request->input('email');
         $password = $request->input('password');
-
-        return $password;
-
-        try {
-            $input = $request->all();
-            $success = true;
-            $message = "Book successfully stored";
-        } catch (QueryException $ex) {
-            $success = false;
-            $message = $ex->getMessage();
-        }
-
-        // make response
-        $response = [
-            'success' => $success,
-            'message' => $message
-        ];
-
-        // return response
-        return response()->json($response, 200);
         
+        $user = new UserLibrary();
+        $token = $user->login($email, $password);
+        if($token == FALSE)
+               return "mail.or.password.incorrect";
+
+
+        return ResponseBaseHelper("ResponseSuccess",['token' => $token]);
+     
     }
 
     /**
