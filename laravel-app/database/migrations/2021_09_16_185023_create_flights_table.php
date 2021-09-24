@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 class CreateFlightsTable extends Migration
 {
     /**
@@ -18,7 +19,13 @@ class CreateFlightsTable extends Migration
             $table->string('name')->nullable();
             $table->boolean('state')->nullable()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
+        
+        Schema::table('flights', function (Blueprint $table) {
+        });
+        
+        
     }
 
     /**
@@ -29,5 +36,8 @@ class CreateFlightsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('flights');
+        Schema::table('flights', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 }

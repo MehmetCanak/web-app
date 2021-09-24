@@ -11,8 +11,17 @@ use Illuminate\Support\Facades\Blade;
 use App\View\Components\Alert;
 use App\View\Components\Button;
 
+use App\Events\OrderShipped;
+use App\Listeners\SendShipmentNotification;
+
 class AppServiceProvider extends ServiceProvider
 {
+
+    protected $listen = [
+        OrderShipped::class => [
+            SendShipmentNotification::class,
+        ],
+    ];
     /**
      * Register any application services.
      *

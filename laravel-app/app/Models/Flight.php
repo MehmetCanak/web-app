@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Flight extends Model
 {
+    use SoftDeletes;
     //use HasFactory;
     // protected $table = 'my_flights';
     // protected $primaryKey = 'flight_id';
@@ -22,5 +24,7 @@ class Flight extends Model
     // protected $attributes = [
     //     'delayed' => false,
     // ];
+
+    
 
 }

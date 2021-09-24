@@ -15,14 +15,72 @@ class FlightController extends Controller
     public function index()
     {
         
-        // foreach (Flight::all() as $flight) {
-        //     echo $flight->name;
-        // }
-        $flights = Flight::where('state', 0)
-               ->orderBy('name')
-               ->take(10)
-               ->get();
-        echo $flights;
+       // Flight::withTrashed()->find(6)->restore();
+       // foreach (Flight::all() as $flight) {
+           //     echo $flight->name;
+           //     echo '<br>';
+           // }
+        // $flights = Flight::where('state', 0)
+        //        ->orderBy('name')
+        //        ->take(10)
+        //        ->get();
+        // echo $flights;
+        // $flight = Flight::where('name', 'mehmet')->first();
+        // $flights = Flight::where('state', '1')->get();
+        
+        //echo $flights;
+        
+        // $flights = $flights->reject(function ($flight) {
+            //     var_dump($flight->cancelled);
+            //     return $flight->cancelled;
+            // });
+            
+            // Flight::where('state', true)
+            //     ->chunkById(2, function ($flights) {
+                //         $flights->each->update(['state' => false]);
+                // }, $column = 'state');
+                
+                // $flight = Flight::find(5);
+                // $flight = Flight::where('state',true)->first();
+                // $flight = Flight::where('state', '=', 1)->firstOrFail();
+                // $count = Flight::where('state', 0)->count();
+                
+                // $flight = Flight::find(6);
+                // print_r($flight);
+                // $flight->delete();
+                // print_r("------");
+                // var_dump($flight);
+                
+        //Flight::withTrashed()->find(4)->restore();
+        // Flight::withTrashed()
+            // ->where('airline_id', 1)
+            // ->restore();
+
+        //Flight::withTrashed()->restore();
+    
+
+        //Flight::destroy(collect([4, 5, 6]));
+        foreach (Flight::all() as $flight) {
+            echo $flight->name;
+            echo '<br>';
+        }
+        echo "-----";
+        $flights = Flight::withTrashed()
+                ->where('state', 0)
+                ->get();
+        foreach ( $flights as $flight) {
+            echo $flight;
+            echo '<br>';
+        }
+        
+
+        //print_r($flight);
+        // $user = Flight::create([
+        //     'name' => 'Taylor',
+        //     'state' => true,
+        // ]);
+        //print_r($user);
+
 
 
     }
