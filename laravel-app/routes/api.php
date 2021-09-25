@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\FormDataController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\AuthController;
 use App\Models\User;
 
 /*
@@ -24,6 +25,8 @@ Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post', [PostController::class, 'store']);
 Route::get('/', [FormDataController::class,'index'])->name('form.index');
 Route::post('/form', [FormDataController::class,'save'])->name('form.save');
+
+Route::post('/login', [AuthController::class,'login']);
 
 Route::get('/users', [UserController::class,'index'])->name('users.index');
 Route::post('/users/search', [UserController::class,'search'])->name('users.search');
