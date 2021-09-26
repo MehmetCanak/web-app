@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { MessageHelper } from './../helpers/message';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,17 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 export class LoginComponent implements OnInit {
   faCoffee = faCoffee;
 
-  constructor() { }
+  constructor( 
+    private messageHelper: MessageHelper
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  login(){
+
+    this.messageHelper.toastMessage("messageHelper",'error',2000);
+
   }
 
 }
