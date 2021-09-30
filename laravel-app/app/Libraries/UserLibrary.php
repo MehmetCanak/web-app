@@ -9,6 +9,16 @@ use DB;
 use Request;
 //use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
+use App\Events\UserDeleted;
+use App\Events\UserSaved;
 
 
 class UserLibrary
@@ -42,12 +52,20 @@ class UserLibrary
             'time' => strtotime(date('Y-m-d H:i:s')),
             'clientInfo' => $this->ReadFromResponseData('clientInfo')
         ];
-
+        
         if($tokens == NULL) $tokens = [];
         array_push($tokens, $temp);
-
+        
         $user->tokens = $tokens;
-        $user->save();
+
+        try{
+            $user->tokens = $tokens;
+            //dd($user);
+            $user->save(); 
+         }
+         catch(\Exception $e){
+            echo $e->getMessage();  
+        }
 
         return $token;
 

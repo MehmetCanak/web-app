@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use \Illuminate\Database\QueryException;
 use App\Http\Requests\Api\LoginUser;
-use App\Libraries\UserLibrary;     
+use App\Libraries\UserLibrary;  
+use App\Models\User;   
 
 
 //use \App\Http\Requests\StorePostRequest  $request;
