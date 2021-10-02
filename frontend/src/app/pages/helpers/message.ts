@@ -22,17 +22,10 @@ export class MessageHelper
 
         Swal.fire({
             position: 'top-end',
-            icon: 'success',
+            icon: 'info',
             title: message,
             showConfirmButton: false,
             timer: duration
           })
-        // Swal.fire({
-        //     position: 'top-end',
-        //     icon: 'success',
-        //     title: 'Your work has been saved',
-        //     showConfirmButton: false,
-        //     timer: 1500
-        //   })
     }
 }

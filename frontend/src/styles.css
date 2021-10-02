@@ -1,198 +1,250 @@
-@import "~bootstrap/dist/css/bootstrap.css";
-@import '~ngx-toastr/toastr.css';
-@font-face {
-    font-family: medium-content-sans-serif-font;
-    src: url(assets/fonts/marat-sans-400-normal.woff) format("woff");
+body
+{
+    font-size: 13px !important;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    
+    overflow-y: auto !important;
+    overflow-x: hidden;
 }
 
-.loading-text h3 {
-    text-align: center;
-    margin-top: 50px;
+table
+{
+    font-size: 13px !important;
 }
 
-.loading-text p {
-    text-align: center;
-    margin-top: 50px;
-    color: black;
-    text-align: center;
-    font-size: 22px;
+a
+{
+    cursor: pointer;
 }
 
-.error-text p {
-    color: black;
-    text-align: center;
-    font-size: 22px;
+a span.zmdi, a span.ti, a i.ti, a i.zmdi
+{
+    color: white;
 }
 
-.navbar-default .navbar-collapse .navbar-nav>li>a {
-    color: #000;
-    font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+.menu .zmdi, .navbar-nav .zmdi, .dropdown-item span
+{
+    color: #666 !important; 
 }
 
-.main-content h2 {
-    margin-top: 10px;
+a.imitation-user-logout-button  i.zmdi
+{
+    color: red !important;
+} 
+
+input::placeholder, .select2-selection__placeholder, textarea::placeholder
+{
+    color:#ccc !important;
 }
 
-.main-content h2,
-.main-content>p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+::selection {
+  color: #ffffff;
+  background: #0b76fbc2;
 }
 
-@media screen and (max-width:767px) {
-    .main-content h2 {
-        font-size: 18px;
-        font-weight: 700;
-    }
-    .navbar-nav,
-    .collapse.navbar-collapse ul>li {
-        display: inline-block;
-    }
-    .collapse.navbar-collapse {
-        display: block;
-    }
-    ul.nav.navbar-nav.navbar-right {
-        margin-left: 25px;
-    }
-    .navbar-nav {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    .navbar-default .navbar-collapse .navbar-nav>li>a {
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
+#defaultFeatureInfoModal in-show-element section
+{
+    padding: 0px !important;
+    margin: 0px !important;
 }
 
-.help-block {
-    color: red
+.bootstrap-select
+{
+    display: none !important;
+    visibility: hidden;
 }
 
-.form-control.ng-touched.ng-invalid {
-    border: 1px solid red
+section.content 
+{
+    background: #eaeaea !important;
+    box-shadow: 0 0 16px rgba(41,42,51,0.1), 0 6px 20px rgba(41,42,51,0.1) !important;
 }
 
-.no-text {
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 50px;
+.selected-option
+{
+    background-color: #9aeef1 !important;
 }
 
-.card.row {
-    box-shadow: 0 10px 35px rgba(0, 0, 0, .1);
-    border: none !important;
-    border-radius: 6px;
-    margin: 0;
-    min-height: 180px;
-    margin-bottom: 35px;
-    position: relative;
-    overflow: hidden;
+.mouse-position
+{
+    color: #847d7d; 
+    padding: 0 5; 
+    bottom: 5px;
+    z-index: 999999; 
+    position: absolute; 
+    background-color: #ccc; 
+    font-weight: bold;
 }
 
-.list-group,
-.img-circle {
-    box-shadow: 0 10px 35px rgba(0, 0, 0, .2);
+.imitation-user-logout-button
+{
+    color: red !important;
 }
 
-.list-group {
-    margin-right: 25px;
+.cdk-drag-preview {
+    z-index: 99999999999999 !important;
 }
 
-.main-content div {
-    padding: 0;
+.wizard.vertical > .content
+{
+    width: 70% !important;
 }
 
-.main-content {
-    position: unset;
+.file-preview
+{
+    box-shadow: 0px 5px 5px 0px rgba(41,42,51,0.2);
+    height: 40px;
+    width: 40px;
+}
+
+.swal2-container 
+{
+    z-index: 9999999999 !important;
+}
+
+.theme-light .open
+{
+    background-color: rgba(255,255,255,0.9) !important;
 }
 
 
-/* .author-date {
-    margin-top: 10px
-} */
-
-.author-date>p {
-    color: #474d55;
-    font-weight: 500;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    margin: 0;
-    line-height: 1.3;
+.theme-dark .column-filter, .theme-dark  table, .theme-dark  select, .theme-dark  input
+{
+    color: #aaa !important;
 }
 
-.navbar-default {
-    margin-bottom: 45px;
+.theme-dark .select2-search__field, .theme-dark .select2-selection
+{
+    background-color: #313131 !important;
 }
 
-button,
-p {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: #000;
+.theme-dark .modal-content
+{
+    background-color: #4c4c4c !important;
 }
 
-.img-col {
-    padding: 0;
+.theme-dark select
+{
+    border-color: #b3b3b5 !important;
 }
 
-.img-col img {
-    min-height: 180px;
+.trumbowyg-box
+{
+    margin: 0px !important;
 }
 
-h2.title {
-    font-weight: 600;
-    margin-top: 7px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    font-size: 24px;
-    line-height: 1.3;
+.filter-cell .input-group-text
+{
+    padding: 2 !important;
+    height: 25 !important;
+    margin: 5 0 0 10 !important;
 }
 
-.author-date {
-    position: absolute;
-    bottom: 0;
-    padding-bottom: 7px;
+.select2-selection--multiple
+{
+    display: inline-table !important;
+    width: 100% !important;
 }
 
-@media screen and (max-width:767px) {
-    .img-col img,
-    .card.row {
-        min-height: 145px;
-    }
-    h2.title {
-        font-size: 18px;
-    }
-    .navbar-default {
-        margin-bottom: 20px;
-    }
+.comboboxlist-td
+{
+  font-size: 12px !important;
+  padding: 2 !important;    
 }
 
-@media screen and (max-width:350px) {
-    .navbar-default .navbar-collapse .navbar-nav>li>a {
-        padding: 8px;
-        font-size: 15px;
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
+.comboboxlist-td i
+{
+    font-size: 13px;
 }
 
-@media screen and (min-width:351px) and (max-width:400px) {
-    .navbar-default .navbar-collapse .navbar-nav>li>a {
-        font-size: 15px;
-    }
+.nav-tabs>.nav-item>.nav-link 
+{
+    border-radius: 0px !important;
 }
 
-a.author-name {
-    color: #1b75d2;
-    font-size: 22px !important;
+.arrow
+{
+    display: none !important;
 }
 
-.card.row.card-featured .main-content p {
-    -webkit-line-clamp: 5;
-    max-height: 151px;
+.modal-content
+{
+    max-width: 85% !important;
+}
+
+.select2-container
+{
+    margin: 0 !important;
+}
+
+.link_description
+{
+    font-size: 10px;
+    margin-left: 40px;
+    padding-bottom: 8px;
+    color: darkgray;
+}
+
+#close
+{
+    position: absolute !important;
+    top: 5px;
+    right: 5px;
+    z-index: 120;
+}
+
+.pull-rigth
+{
+    float: right;
+}
+
+.pull-left
+{
+    float: left;
+}
+
+.app-bar
+{
+    height: 50;
+    background-color: #eaeaea;
+    border-bottom: 2px solid #999;
+    margin-bottom: 10;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+}
+
+.modal-content
+{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mobile_menu{
+    top:5px !important;
+    right:5px  !important;
+}
+
+section, .navbar-nav, .sidebar
+{
+    -webkit-transition: all 0.1s !important;
+    transition: all 0.1s !important;
+}
+
+#leftsidebar
+{
+    z-index: 20;
+}
+
+#leftsidebar a
+{
+    text-decoration: none;
+}
+
+.btn-block
+{
+    width: 100%;
 }

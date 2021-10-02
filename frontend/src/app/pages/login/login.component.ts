@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login3.component.html',
+  templateUrl: './login1.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
