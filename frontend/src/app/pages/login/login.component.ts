@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login3.component.html',
+  templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
@@ -26,9 +26,6 @@ export class LoginComponent implements OnInit {
 
     this.messageHelper.toastMessage("messageHelper",'error',2000);
 
-  }
-  onSwitchMode() {
-    this.isLoginMode = !this.isLoginMode;
   }
   onSubmit(form: NgForm) {
     
